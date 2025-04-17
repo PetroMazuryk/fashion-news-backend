@@ -1,19 +1,20 @@
 import Joi from "joi";
+
 const subscriptionList = ["starter", "pro", "business"];
 
 export const createNewsSchema = Joi.object({
-  name: Joi.string().min(2).max(20).required(),
-  // email: Joi.string().email().required(),
-  number: Joi.string().required(),
-  // favorite: Joi.boolean(),
+  title: Joi.string().min(2).max(20).required(),
+  date: Joi.date().default(() => new Date(), 'current date'),
+  content: Joi.string().required(),
+  favorite: Joi.boolean(),
 });
 
 export const updateNewsSchema = Joi.object({
-  name: Joi.string().min(2).max(20).required(),
-  number: Joi.string().required(),
-  phone: Joi.string().required(),
+  title: Joi.string().min(2).max(20).required(),
+  date: Joi.date(),
+  content: Joi.string(),
   favorite: Joi.boolean(),
-});
+}).min(1)
 
 export const uptadeFavoriteSchema = Joi.object({
   favorite: Joi.boolean().required(),
