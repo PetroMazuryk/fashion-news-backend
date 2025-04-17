@@ -4,7 +4,7 @@ const subscriptionList = ["starter", "pro", "business"];
 
 export const createNewsSchema = Joi.object({
   title: Joi.string().min(2).max(20).required(),
-  date: Joi.date().default(() => new Date(), 'current date'),
+  date: Joi.date().default(() => new Date()),
   content: Joi.string().required(),
   favorite: Joi.boolean(),
 });

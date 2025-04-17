@@ -3,17 +3,19 @@ import { handleMongooseError } from "../helpers/handleMongooseError.js";
 
 const newsSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
-      required: [true, "Set name for contact"],
+      required: [true, 'Set title for news'],
+      minlength: 2,
+      maxlength: 100,
     },
-    number: {
-      type: String,
-      required: true,
-      
+    date: {
+      type: Date,
+      default: Date.now,
     },
-    phone: {
+    content: {
       type: String,
+      required: [true, 'Set content for news'],
     },
     favorite: {
       type: Boolean,
@@ -21,7 +23,7 @@ const newsSchema = new Schema(
     },
     owner: {
       type: Schema.Types.ObjectId,
-      ref: "user",
+      ref: 'user',
       required: true,
     },
   },
