@@ -15,7 +15,7 @@ const newsSchema = new Schema(
     },
     content: {
       type: String,
-      required: [true, 'Set content for news'],
+      // required: [true, 'Set content for news'],
     },
     favorite: {
       type: Boolean,
