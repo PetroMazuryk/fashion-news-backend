@@ -10,8 +10,8 @@ const newsSchema = new Schema(
       maxlength: 100,
     },
     date: {
-      type: Date,
-      default: Date.now,
+      type: String, 
+      required: [true, 'Set date for news'],
     },
     content: {
       type: String,
