@@ -26,7 +26,7 @@ newsRouter.post(
   ctrl.createNews
 );
 
-newsRouter.put(
+newsRouter.patch(
   "/:id",
   authenticate,
   isValidId,
